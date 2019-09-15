@@ -16,8 +16,6 @@ function Node(value){
     })
 
      return head
-
-
 }
 
 function swap (p,q){
@@ -54,5 +52,14 @@ function sort (begin,end){
         sort(part.next,end)
 
     }
+}
+
+function typeChain(head){
+      const arr = []
+      while(head){
+          arr.unshift(head.val)
+          head = head.next
+      }
+      return arr
 }
 

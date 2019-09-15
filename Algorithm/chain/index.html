@@ -11,6 +11,8 @@
     <script src="./circlechain.js"></script>
     <script src="./findFirstCommonNode.js"></script>
     <script src="./deletechain.js"></script>
+    <script src="./reverseChain.js"></script>
+    <script src="./FindKthToTail.js"></script>
 </head>
 <body>
     
@@ -19,14 +21,18 @@
 // let head = new NodeList([4,1,3,2,7,9,12,6])
 // let head2 = new NodeList([1,2,5,1,4,6,10,7])
 let head = new NodeList([1,3,5,7])
-let head2 = new NodeList([2,6,9,5,5,8])
-console.log(head)
+let head2 = new NodeList([2,6,9,5,5,8,8])
+console.log(typeChain(head2))
 // console.log(clone(head))
 // console.log(merge(head,head2))
 // console.log(EntryNodeOfLoop(head))
+console.log(reverseList(head2))
 console.log(findFirshtCommonNode(head,head2))
 let head3 = new NodeList([1,2,3,4,5])
-console.log(removeNthFromEnd(head3,2))
+// console.log(removeNthFromEnd(head3,2))
+console.log(deleteDuplication(head2))
+let head4 =  new NodeList([2,6,9,5,5,8,8])
+console.log(FindKthToTail(head4,2))
 // sort(head)
 
 // let res = []

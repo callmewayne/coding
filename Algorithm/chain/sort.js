@@ -8,7 +8,7 @@ function Node(value){
 //声明链表
  function NodeList(arr){
     //声明链表的头部节点
-    let head = new Node(arr.shift())
+    let head = new Node(arr.unshift())
     let next = head
     arr.forEach(item=>{
           next.next = new Node(item)
@@ -54,12 +54,16 @@ function sort (begin,end){
     }
 }
 
-function typeChain(head){
-      const arr = []
-      while(head){
-          arr.unshift(head.val)
-          head = head.next
-      }
-      return arr
-}
+// function typeChain(head){
+//       const arr = []
+//       while(head){
+//           arr.unshift(head.val)
+//           head = head.next
+//       }
+//       return arr
+// }
+
+
+
+
 

@@ -4,15 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="./stack.js"></script>
+    <title>栈</title>
+    <!-- <script src="./baseball.js"></script> -->
+    <script src="./leecode.js"></script>
 </head>
 <body>
     
 </body>
 <script>
 
-console.log(baseball(['5','2','C','D','+']))
-console.log(baseball(['5','-2','4','C','D','9','+','+']))
+// console.log(isValid('()'))
+// console.log(isValid('([)]'))
+
+const minStack = new MinStackByArray()
+minStack.push(-2)
+minStack.push(0);
+minStack.push(-3);
+console.log(minStack.getMin()); 
+minStack.pop();
+console.log(minStack.top())
+console.log(minStack.getMin()); 
+console.log(minStack)
+
+
+console.log(nextGreaterElement([4,1,2],[1,3,4,2]))
+
+console.log(backspaceCompare('ab#c','ad#c'))
+
 </script>
 </html>

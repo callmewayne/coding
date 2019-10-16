@@ -1,7 +1,7 @@
 
 function insertNode(node, newNode){
-    console.log(`node`,node)
-    console.log(`newNode`,newNode)
+    // console.log(`node`,node)
+    // console.log(`newNode`,newNode)
     if(newNode.key < node.key) {
         node.left === null ? (node.left = newNode) : (insertNode(node.left, newNode))
     }else {
@@ -96,8 +96,8 @@ tree.insert(21);
 tree.insert(520);
 tree.insert(120);
 tree.insert(521);
-//tree.inOrderTraverse(printNode)
+tree.inOrderTraverse(printNode)
 //tree.preOrderTraverse(printNode)
-tree.postOrderTraverse(printNode)
-console.log(tree.min())
-
+//tree.postOrderTraverse(printNode)
+// console.log(tree.min())
+console.log(tree)

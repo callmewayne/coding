@@ -87,31 +87,36 @@ function BinarySearchTree() {
       return minNode(root)
   }
 
- this.removeNode = function(key){
+  //删除节点
+ this.remove = function(key){
    //1.先找到我们需要删除的节点，如果没有找到则不需要删除。
-     var current = this.root
+     var current = root
      var parent = null
      var isLeftChild = true
      //开始寻找要删除的节点
      while(current.key !=key){
+         //parent等于当前的节点
          parent = current
+         //如果寻找的节点小于当前的节点，说明是有左子节点的
          if(key < current.key){
             isLeftChild = true
+            //当前结点进到当前结点的左节点处
             current = current.left 
         }else{
             isLeftChild = false
+             //当前结点进到当前结点的右节点处
             current = current.right
         }
-        //没有找到相等的key
+        //没有找到相等的key，则返回false
         if(current == null) return false
      }
 
    //2.根据对应的情况删除节点
    //2.1删除的节点没有子节点
    if(current.left ==null && current.right ==null){
-       if(current == this.root){
-           this.root == null
-       }else if(isLeftChild){
+       if(current == root){
+           root == null
+       }else if(isLeftChild){ 
            parent.left = null
        }else{
         parent.right = null
@@ -119,16 +124,16 @@ function BinarySearchTree() {
    }
    //2.2删除的情况有一个节点
    else if(current.right==null){
-       if(current == this.root){
-           this.root = current.left
+       if(current == root){
+           root = current.left
        }else if(isLeftChild){
             parent.left = current.left
          }else{
             parent.right = current.left
          }
    } else if(current.left==null){
-       if(current == this.root){
-        this.root = current.right
+       if(current == root){
+        root = current.right
        }else if(isLeftChild){
             parent.left = current.right
          }else{
@@ -140,55 +145,66 @@ function BinarySearchTree() {
    //2.3删除的情况有两个节点
    else{
        //1.获取后继节点
-       var succssor = this.getSuccssor(current)
+       var successor = this.getsuccessor(current)
 
        //2.判断是不是根
-       if(current==this.root){
-           this.root = succssor
+       if(current==root){
+           root = successor
        }else if(isLeftChild){
-           parent.left = succssor
+           parent.left = successor
        }else{
-           parent.right = succssor
+           parent.right = successor
        }
 
        //将删除节点的左子树 = current.left
-       succssor.left = current.left
+       successor.left = current.left
    }    
 
  }
 
- this.getSuccssor = function(delNode){
+ this.getsuccessor = function(delNode){
      //1.定义变量，保存找到的后继
-     var succssor = delNode
-     var succssorParent = delNode
+     var successor = delNode
+     var successorParent = delNode
      var current = delNode.right
 
      while(current != null){
-        succssorParent = succssor
-        succssor = current
+        successorParent = successor
+        successor = current
         current = current.left
      }
 
      //3.判断寻找的后继节点是否直接就是delNode的right节点
      if(successor != delNode.right){
-        succssorParent.left = succssor.right
+        successorParent.left = successor.right
         successor.right = delNode.right
      }
 
-     return succssor
+     return successor
  }
 
 }
 
 let tree = new BinarySearchTree()
-tree.insert(20);
+tree.insert(11);
+tree.insert(7);
+tree.insert(5);
+tree.insert(3);
+tree.insert(6);
+tree.insert(9);
+tree.insert(8);
 tree.insert(10);
-tree.insert(21);
-tree.insert(520);
-tree.insert(120);
-tree.insert(521);
+tree.insert(15);
+tree.insert(13);
+tree.insert(12);
+tree.insert(14);
+tree.insert(20);
+tree.insert(18);
+tree.insert(25);
+tree.remove(6);
+tree.remove(13);
 tree.inOrderTraverse(printNode)
 //tree.preOrderTraverse(printNode)
 //tree.postOrderTraverse(printNode)
 // console.log(tree.min())
-console.log(tree)
+

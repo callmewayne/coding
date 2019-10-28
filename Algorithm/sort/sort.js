@@ -39,6 +39,17 @@ function ArrayList() {
         }
 
     }
+    //冒泡排序ES6写法
+    ArrayList.prototype.bubbleSortByES6 = function(){
+        var length = this.array.length
+        for(let j = length-1;j>=0;j--){
+           for(let i = 0;i<j;i++){
+               if(this.array[i] > this.array[i+1]){
+                [this.array[i],this.array[i+1]] = [this.array[i+1],this.array[i]]
+               }
+           }
+        }
+    }
 
     //选择排序
     ArrayList.prototype.selectionSort = function () {

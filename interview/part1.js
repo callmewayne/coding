@@ -35,6 +35,7 @@ function binaryFind(arr,target){
     var low = 0,
     high = arr.length - 1,
     mid;
+    
     while(low <= high){
         mid = Math.floor((low + high)/2)
         if(target === arr[mid]){

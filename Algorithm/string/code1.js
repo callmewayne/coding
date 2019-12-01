@@ -36,3 +36,29 @@ function replaceEmpty2(str){
 
 console.log(replaceEmpty1('wa are happy'))
 console.log(replaceEmpty2('wa are happy'))
+
+//翻转单词顺序
+//输入字符串“I am a student.”，则输出 “ student. a am I”
+
+function reverseSentense(sentense){
+  //第一次翻转：每个字符
+  const chars  = sentense.split('').reverse()
+  let result = '',
+      last = []
+
+      chars.forEach(ch => {
+          if(ch ===' '){
+              result += last.reverse().join('')
+              last.length = 0
+          }
+          last.push(ch)
+      });
+
+      result += last.reverse().join('')
+      return result
+      
+}
+console.log(reverseSentense('I am a student.'))
+
+
+

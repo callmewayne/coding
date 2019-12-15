@@ -56,3 +56,54 @@ function findCheapestPrice(src,dst,k){
    return cheap(src,dst,k) || -1
 }
 console.log(findCheapestPrice(0,2,0))
+
+//JS查找两个字符串中最长的公共子串
+function maxSubString(str1,str2){
+    let temp = new Array()
+    let max = 0
+    let index = null
+    for(let i = 0;i<str1.length;i++){
+        //初始化为二维数组
+        temp[i] = new Array()
+        for(let j = 0;j<str2.length;j++){
+            //比较两个位置是否相等，相等就让temp[i][j]相对于temp[i-1][j-1]加一（前提是temp[i-1][j-1]存在）
+            if(str1.charAt(i) === str2.charAt(j)){
+                if(i>0 && j>0 && temp[i-1][j-1]>0){
+                    temp[i][j] = 1 + temp[i-1][j-1]
+                }else{
+                    temp[i][j] = 1
+                }
+                //保存当前temp中最大的值，并且标记位置后移
+                if(max < temp[i][j]){
+                    max = temp[i][j]
+                    index = i
+                }else{
+
+                }
+            }else{
+                temp[i][j] = 0
+            }
+        }
+    }
+    console.log(max+'+'+index)
+    console.log(temp)
+    return str1.substr(index - max + 1,max)
+}
+console.log(maxSubString('acbcbcef','abcbced'))
+
+
+//爬楼梯问题
+// 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
+// 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+// 注意：给定 n 是一个正整数。
+function climbStairs (n){
+   let dp = []
+   dp[0] = 1
+   dp[1] = 1
+   for(let i = 2;i<=n;i++){
+       dp[i] = dp[i-1]+dp[i-2]
+   }
+   return dp[n]
+}
+
+console.log(climbStairs(3))

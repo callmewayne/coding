@@ -120,3 +120,33 @@ function getTotalTimes(nums,target){
 
 const nums = [1, 2, 3, 3, 3, 4, 5];
 console.log(getTotalTimes(nums,3))
+
+//在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。
+//完成一个函数，输入这样一个二维数组和一个整数，判断数组中是否含有该整数。
+
+function findElem(arr,elem){
+    let row = arr.length - 1
+    col = arr[0].length - 1
+    let i = 0,
+    j = col
+
+    while(i<= row && j>=0){
+        if(arr[i][j] === elem){
+            return true
+        }
+        if(elem > arr[i][j]){
+            ++i
+        }else{
+            --j
+        }
+    }
+return false
+  
+}
+
+const arr = [[1,2,8,9],[2,4,9,12],[4,7,10,13],[6,8,11,15]]
+
+// console.log(findElem(arr,8))
+// console.log(findElem(arr, 1));
+console.log(findElem(arr, 10));
+

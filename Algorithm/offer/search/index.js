@@ -38,3 +38,7 @@ function binSearchMin(arr){
 // console.log(binSearchMin([3, 4, 5, 1, 2]));
 //console.log(binSearchMin([2, 3, 4, 5, 1]));
 console.log(binSearchMin([2, 2, 2, 1, 1, 2]));
+
+
+//统计一个数字在排列数组中出现的次数
+

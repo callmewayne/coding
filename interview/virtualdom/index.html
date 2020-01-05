@@ -5,9 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>virtual DOM</title>
+    <script src="./element.js"></script>
     <script src="./index.js"></script>
 </head>
 <body>
     
 </body>
+<script>
+
+var el =  new Element()
+
+var ul = new Element('ul',{id:'list'},[
+    new Element('li',{class:'item'},['Item 1']),
+    new Element('li',{class:'item'},['Item 2']),
+    new Element('li',{class:'item'},['Item 3']),
+])
+
+var ulRoot = ul.render()
+console.log(document)
+window.document.body.appendChild(ulRoot)
+</script>
 </html>

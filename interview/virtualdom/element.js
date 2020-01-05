@@ -4,7 +4,7 @@ function Element(tagName,props,children){
     this.children = children
 }
 Element.prototype.render = function(){
-    var el = document.createComment(this.tagName)
+    var el = document.createElement(this.tagName)
     var props = this.props
     for(var propName in props){
         var propValue = props[propName]
@@ -19,6 +19,7 @@ Element.prototype.render = function(){
     })
     return el
 }
-// module.exports = function(tagName,props,children){
-//    return new Element(tagName,props,children)
-// }
+
+// module.exports = function (tagName, props, children) {
+//     return new Element(tagName, props, children)
+//   }

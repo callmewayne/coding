@@ -1,31 +1,19 @@
-function Element(tagName,props,children){
-    this.tagName = tagName
-    this.props = props
-    this.children = children
+//diff函数，对比两棵树
+function diff(oldTree,newTree){
+    var index = 0 //当前结点的标志
+    var patches = {}
+    dfsWalk(oldTree,newNode,index,patches)
+    return patches
 }
-Element.prototype.render = function(){
-    var el = document.createElement(this.tagName)
-    var props = this.props
-    for(var propName in props){
-        var propValue = props[propName]
-        el.setAttribute(propName,propValue)
-    }
-    var children = this.children || []
-    children.forEach(function(child){
-        var childEl = (child instanceof Element)
-        ? child.render()
-        :document.createTextNode(child)
-        el.appendChild(childEl)
-    })
-    return el
+
+//对比两棵树进行深度优先遍历
+function dfsWalk(oldNode,newNode,index,patches){
+    //对比oldNode和newNode的不同，记录下来
+   var currentPatch = []
+
+   //Node is removed
+//    if(newNode === null){
+
+//    }else if(oldNode.isString())
 }
-// var el =  new Element()
 
-var ul = new Element('ul',{id:'list'},[
-    new Element('li',{class:'item'},['Item 1']),
-    new Element('li',{class:'item'},['Item 2']),
-    new Element('li',{class:'item'},['Item 3']),
-])
-
-var ulRoot = ul.render()
-document.body.appendChild(ulRoot)

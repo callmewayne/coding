@@ -115,3 +115,70 @@ var reg = /(?=.*[0-9])(?=.*[a-z])^[0-9a-zA-Z]{6,12}$/
 var maxRegex = /(?=.*[0-9])(?=.*[a-z])|(?=.*[0-9])(?=.*[A-Z])|(?=.*[a-z])(?=.*[A-Z])^[0-9a-zA-Z]{6,12}$/g
 var string11 = 'ASDASFAF1'
 console.log(maxRegex.test(string11))
+
+
+
+//将每个单词的首字母转换为大写
+function titleize(str){
+    return str.toLowerCase().replace(/(?:^|\s)\w/g,function(c){
+        console.log(c)
+        return c.toUpperCase()
+    })
+}
+
+console.log(titleize('my name is epeli'))
+
+//驼峰化
+function cameliaze(str){
+    return str.replace(/[-_\s]+(.)?/g,function(match,c){
+        return c?c.toUpperCase():''
+    })
+}
+
+console.log(cameliaze('-moz-transform'))
+
+//中划线化
+function dasherize(str){
+   //第一段将匹配出来的大写字符前面加‘-’，
+    return str.replace(/([A-Z])/g,"-$1").replace(/[-_\s]+/g,'-').toLowerCase()
+
+}
+console.log(dasherize("MozTransform"))
+
+//html转义和反转义
+function escapeHTML(str){
+    var escapeChars = {
+        '¢' : 'cent',
+	  '£' : 'pound',
+	  '¥' : 'yen',
+	  '€': 'euro',
+	  '©' :'copy',
+	  '®' : 'reg',
+	  '<' : 'lt',
+	  '>' : 'gt',
+	  '"' : 'quot',
+	  '&' : 'amp',
+	  '\'' : '#39'
+
+    }
+    return str.replace(new RegExp('['+Object.keys(escapeChars).join('')+']','g'),function(match){
+         return '&'+escapeChars[match]+';'
+    })
+}
+console.log(escapeHTML('<div>Blah blah blah</div>'))
+
+//匹配成对标签
+//要求匹配<title>regular expression</title>
+var regex13 = /<([^>]+)>[\d\D]*<\/\1>/
+var string13 = '<title>regular sdad</p>'
+
+console.log(regex13.test(string13))
+
+//惰性两次
+//惰性量词就是在贪婪量词后面加个问号。表示尽可能少的匹配
+
+var regex14 = /(\d{1,3}?)(\d{1,3})/
+var string14 = '12345'
+console.log(string14.match(regex14))
+
+

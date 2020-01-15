@@ -118,6 +118,7 @@ console.log(maxRegex.test(string11))
 
 
 
+
 //将每个单词的首字母转换为大写
 function titleize(str){
     return str.toLowerCase().replace(/(?:^|\s)\w/g,function(c){
@@ -180,5 +181,34 @@ console.log(regex13.test(string13))
 var regex14 = /(\d{1,3}?)(\d{1,3})/
 var string14 = '12345'
 console.log(string14.match(regex14))
+
+//正则表达式括号的作用
+
+//分组
+
+var regex12 = /(ab)+/g
+var string12 = 'ababa abbb ababab'
+console.log(string12.match(regex12))
+
+//分支结构
+//在多选分支(p1 | p2)中，此处括号的作用也是不言而喻的，提供了子表达式的所有可能。
+//比如，要匹配如下的字符串：
+
+//I LOVE
+
+var string13 = 'I love JavaScript'
+var regex13 = /^I love (JavaScript|Regular Expression)$/
+console.log(regex13.test(string13))
+
+//引用分组
+
+var regex14 = /(\d{4})-(\d{2})-(\d{2})/
+var string14 = '2020-01-03'
+var result14 = string14.replace(regex14,'$2/$3/$1')
+console.log(result14)
+
+//反向引用
+//除了使用相应API来引用分组，也可以在正则本身里引用分组，但只能引用之前出现的分组，即反向引用
+
 
 

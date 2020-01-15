@@ -43,4 +43,38 @@ function Factory(name,age,career){
 }
 ```
 
+##### 抽象工厂模式里要有四种关键角色
+ - 抽象工厂 抽象类，他不能被用于生成具体实例。
+
+ - 具体工厂 用于生成产品族里一个具体的产品。
+
+ - 抽象产品 抽象类，他不能被用于生成具体实例
+
+ - 具体产品 用于生成产品族里一个具体的产品所依赖的更细粒度的产品
+
+#### 单例模式
+
+保证一个类仅有一个实例，并提供一个访问它的全局的访问点，这样的模式就叫做单例模式。
+
+```
+class SingleDog{
+    show(){
+        console.log('我是一个单例对象')
+    }
+
+    static getInstance(){
+        //判断是否已经new过一个实例
+        if(!SingleDog.instance){
+            //若这个实例不存在，那么先创建它
+            SingleDog.instance = new SingleDog()
+        }
+
+        //如果这个唯一的实例已经存在，则直接返回
+    }
+}
+
+const s1 = SingleDog.getInstance()
+
+```
+
 
